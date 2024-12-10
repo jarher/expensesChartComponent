@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "DM Sans Regular";
+  src: url("../fonts/DMSans-Regular.ttf");
+}
+@font-face {
+  font-family: "DM Sans Bold";
+  src: url("../fonts/DMSans-Bold.ttf");
+}
 :root {
   --Soft-red: hsl(10, 79%, 65%);
   --Dark-brown: hsl(25, 47%, 15%);
@@ -6,17 +14,120 @@
   --Very-pale-orange: hsl(33, 100%, 98%);
 }
 
+html {
+  font-size: 18px;
+  font-family: "DM Sans Regular";
+}
+
 body {
   background-color: var(--Cream);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
 }
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
 .chart__container {
+  width: 30.7rem;
+  margin: 3.6rem 0;
 }
-.chart__header {
-  background-color: var(--Soft-red);
+
+.chart__header,
+.chart__footer {
   display: flex;
   justify-content: space-between;
 }
-#myChart,
+
+.chart__header {
+  background-color: var(--Soft-red);
+  padding: 1.2rem 1.1rem;
+  border-radius: 1.3rem;
+}
+
+.chart__header div span {
+  display: block;
+}
+
+.chart__header div span:nth-child(1) {
+  color: var(--Cream);
+}
+
+.chart__header div span:nth-child(2) {
+  color: var(--Very-pale-orange);
+  font-size: 1.6rem;
+  font-family: "DM Sans Bold";
+}
+
 .chart__footer {
+  display: flex;
+  height: 3.05rem;
+}
+
+.chart__footer--content:nth-of-type(2) {
+  align-self: flex-end;
+  height: 2.2rem;
+}
+
+.chart__footer--content span {
+  display: block;
+}
+
+.chart__footer--content:nth-of-type(1) span:nth-child(1),
+.chart__footer--content:nth-of-type(2) span:nth-child(1),
+.chart__footer--content:nth-of-type(2) span:nth-child(2) {
+  font-size: 0.85rem;
+}
+
+.chart__footer--content:nth-of-type(2) span:nth-child(2),
+.chart__footer--content:nth-of-type(1) span:nth-child(1) {
+  color: var(--Medium-brown);
+}
+
+.chart__footer--content:nth-of-type(1) span:nth-child(2),
+.chart__footer--content:nth-of-type(2) span:nth-child(1) {
+  color: var(--Dark-brown);
+  font-family: "DM Sans Bold";
+}
+
+.chart__footer--content:nth-of-type(2) {
+  text-align: right;
+}
+
+.chart__footer--content:nth-of-type(1) span:nth-child(2) {
+  font-size: 1.65rem;
+}
+
+.chart__main {
   background-color: var(--Very-pale-orange);
+  border-radius: 1.3rem;
+  overflow: hidden;
+  padding: 1.6rem 1.1rem;
+  margin-top: 0.8rem;
+}
+
+hr {
+  margin: 2.05rem 0;
+  border: 1px solid var(--Cream);
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    height: 100vh;
+  }
+  .chart__container {
+    margin: 0;
+  }
+  .chart__header {
+    padding: 1.7rem;
+  }
+  .chart__header div span {
+    display: block;
+  }
 }
