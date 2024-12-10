@@ -1,0 +1,22 @@
+:root {
+  --Soft-red: hsl(10, 79%, 65%);
+  --Dark-brown: hsl(25, 47%, 15%);
+  --Medium-brown: hsl(28, 10%, 53%);
+  --Cream: hsl(27, 66%, 92%);
+  --Very-pale-orange: hsl(33, 100%, 98%);
+}
+
+body {
+  background-color: var(--Cream);
+}
+.chart__container {
+}
+.chart__header {
+  background-color: var(--Soft-red);
+  display: flex;
+  justify-content: space-between;
+}
+#myChart,
+.chart__footer {
+  background-color: var(--Very-pale-orange);
+}
