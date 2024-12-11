@@ -23,7 +23,7 @@ const runChartTable = async () => {
   const ctx = document.getElementById("myChart");
 
   // Make sure the canvas has a container with relative dimensions
-  ctx.parentElement.style.height = "30vh";
+  ctx.parentElement.style.height = "33vh";
   ctx.parentElement.style.width = "100%";
   ctx.parentElement.style.position = "relative";
 
@@ -34,7 +34,6 @@ const runChartTable = async () => {
       datasets: [
         {
           data,
-          borderWidth: 1,
           yAxisID: "yAxis",
           xAxisID: "xAxis",
           backgroundColor,
@@ -42,7 +41,7 @@ const runChartTable = async () => {
             // adjust borderRadius according canvas width
             const chart = context.chart;
             const width = chart.width;
-            return width < 400 ? 5 : 10;
+            return width < 400 ? 3 : 5;
           },
           hoverBackgroundColor,
           barPercentage: 0.8, // controls width bars
@@ -53,6 +52,13 @@ const runChartTable = async () => {
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      onHover: (event, chartElement) => {
+        if (chartElement.length > 0) {
+          event.native.target.style.cursor = "pointer";
+        } else {
+          event.native.target.style.cursor = "default";
+        }
+      },
       plugins: {
         legend: {
           display: false,
@@ -70,6 +76,9 @@ const runChartTable = async () => {
               const width = context.chart.width;
               return width <= 425 ? 23 : 33.5;
             },
+          },
+          padding: {
+            bottom: 30,
           },
         },
         tooltip: {
@@ -148,9 +157,10 @@ const runChartTable = async () => {
           ticks: {
             font: {
               color: "hsl(28, 10%, 53%)",
+
               size: function (context) {
                 // adjust font size form X axis according its width
-                return context.chart.width < 400 ? 10 : 12;
+                return context.chart.width < 425 ? 12 : 16;
               },
             },
           },

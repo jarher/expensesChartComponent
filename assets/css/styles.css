@@ -150,7 +150,13 @@ hr {
   .chart__container {
     margin: 0;
   }
+  .chart__main {
+    margin-top: 1.3rem;
+  }
   main {
     height: 100vh;
+  }
+  .chart__header div span:nth-child(2) {
+    font-size: 1.7rem;
   }
 }
