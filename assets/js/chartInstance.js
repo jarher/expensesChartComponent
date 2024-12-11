@@ -23,7 +23,7 @@ const runChartTable = async () => {
   const ctx = document.getElementById("myChart");
 
   // Make sure the canvas has a container with relative dimensions
-  ctx.parentElement.style.height = "40vh";
+  ctx.parentElement.style.height = "30vh";
   ctx.parentElement.style.width = "100%";
   ctx.parentElement.style.position = "relative";
 
@@ -68,12 +68,8 @@ const runChartTable = async () => {
             size: function (context) {
               // adjust font size according canvas size
               const width = context.chart.width;
-              return width <= 425 ? 23 : 24;
+              return width <= 425 ? 23 : 33.5;
             },
-          },
-          padding: {
-            top: 20,
-            bottom: 20,
           },
         },
         tooltip: {
